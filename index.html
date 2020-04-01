@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Covid-19 tracker</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 2rem;">
+      <a class="navbar-brand" href="#">Covid-19 Tracker</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="prevention.html">Prevention</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutme.html">About Me</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div style="margin: 5px">
+      <section class="jumbotron text-center">
+        <h4>Country wise statistics</h4>
+        <p class="lead text-muted">
+          Choose a country or see overall statistics about the Covid-19. Deaths, Infected, Recovered percentage along
+          with graphs. All data are up to date.
+        </p>
+
+      </section>
+    </div>
+    <div style="margin: 5px">
+      <form>
+        <section class="jumbotron text-center ">
+          <div class="form-group">
+            <label>Country Select</label>
+            <div class="autocomplete col-md-3">
+              <input id="myInput" type="text" name="myCountry" placeholder="All">
+            </div>
+            <button style="margin: 5px;" type="button" class="btn btn-primary" onclick="countrychange()">Search</button>
+          </div>
+          <div class="form-group">
+            <label>Number of confirmed cases - <span id="total"></span></label>
+          </div>
+          <div class="form-group">
+            <label>Number of deaths - <span id="deaths"></span></label>
+          </div>
+          <div class="form-group">
+            <label>Number of recovered - <spna id="recovered"></spna></label>
+          </div>
+          <div class="form-group">
+            <label>Death percentage - <span id="deathpercent"></span> % </label>
+          </div>
+        </section>
+      </form>
+    </div>
+
+    <div style="margin: 5px">
+      <section class="jumbotron">
+        <div style=" margin: 0 auto" class="col-md-7">
+          <canvas id="myChart" style="min-height: 400px;"></canvas>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="assets/script.js"></script>
+  <script>
+    defaultValue();
+  </script>
+
+</body>
+
+</html>
