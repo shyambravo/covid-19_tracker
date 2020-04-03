@@ -36,7 +36,7 @@ function defaultValue() {
             document.getElementById("total").textContent = totalcases;
             document.getElementById("deaths").textContent = totaldeaths;
             document.getElementById("recovered").textContent = totalrecovered;
-            let deathPercent = (parseInt(data.total_deaths.replace(",", "")) / parseInt(data.total_cases.replace(",", ""))) * 100;
+            let deathPercent = (parseInt(data.total_deaths.replace(/,/g, '')) / parseInt(data.total_cases.replace(/,/g, ''))) * 100;
             var n = deathPercent.toFixed(2);
             document.getElementById("deathpercent").textContent = n;
             graphy(totalcases, totaldeaths, totalrecovered);
@@ -133,10 +133,10 @@ function countrychange() {
                 document.getElementById("total").textContent = totalcases;
                 document.getElementById("deaths").textContent = totaldeaths;
                 document.getElementById("recovered").textContent = totalrecovered;
-                let deathPercent = (parseInt(data.total_deaths.replace(",", "")) / parseInt(data.total_cases.replace(",", ""))) * 100;
+                let deathPercent = (parseInt(data.total_deaths.replace(/,/g, '')) / parseInt(data.total_cases.replace(/,/g, ''))) * 100;
                 var n = deathPercent.toFixed(2);
                 document.getElementById("deathpercent").textContent = n;
-                myChart.data.datasets[0].data = [parseInt(totalcases.replace(",","")), parseInt(totaldeaths.replace(",","")), parseInt(totalrecovered.replace(",",""))];
+                myChart.data.datasets[0].data = [parseInt(totalcases.replace(/,/g, '')), parseInt(totaldeaths.replace(/,/g, '')), parseInt(totalrecovered.replace(/,/g, ''))];
                 myChart.update();
             }
         });
@@ -158,9 +158,9 @@ function countrychange() {
                 document.getElementById("total").textContent = res.latest_stat_by_country[0].total_cases;
                 document.getElementById("deaths").textContent = res.latest_stat_by_country[0].total_deaths;
                 document.getElementById("recovered").textContent = res.latest_stat_by_country[0].total_recovered;
-                var totalCase = parseInt(res.latest_stat_by_country[0].total_cases.replace(",", ""));
-                var totalDeath = parseInt(res.latest_stat_by_country[0].total_deaths.replace(",", ""));
-                var totalRecovered = parseInt(res.latest_stat_by_country[0].total_recovered.replace(",", ""));
+                var totalCase = parseInt(res.latest_stat_by_country[0].total_cases.replace(/,/g, ''));
+                var totalDeath = parseInt(res.latest_stat_by_country[0].total_deaths.replace(/,/g, ''));
+                var totalRecovered = parseInt(res.latest_stat_by_country[0].total_recovered.replace(/,/g, ''));
                 let deathpercent = (totalDeath / totalCase) * 100;
                 var n = deathpercent.toFixed(2);
                 document.getElementById("deathpercent").textContent = n;
