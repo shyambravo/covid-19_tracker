@@ -55,9 +55,9 @@ var myChart;
 var ctx = document.getElementById('myChart');
 // graph libarary
 function graphy(x, y, z) {
-    var total = x.replace(",", "");
-    var deaths = y.replace(",", "");
-    var recovered = z.replace(",", "");
+    var total = x.replace(/,/g, '');
+    var deaths = y.replace(/,/g, '');
+    var recovered = z.replace(/,/g, '');
     myChart = new Chart(ctx, {
         type: 'bar',
         data: {
